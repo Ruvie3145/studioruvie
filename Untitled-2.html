@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CMS Estilo Elegante Studio Ruvie</title>
+<!-- Fuente elegante -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+  }
+  /* Encabezado */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    background-color: #883A66;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  .logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 2px;
+  }
+  /* Iconos y búsqueda */
+  .top-icons {
+    display: flex;
+    align-items: center;
+  }
+  .top-icons img {
+    width: 32px;
+    height: 32px;
+    margin-left: 16px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .top-icons img:hover {
+    transform: scale(1.1);
+  }
+  /* Buscador */
+  .search-box {
+    display: flex;
+    margin-left: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 4px;
+  }
+  .search-box input {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+    font-size: 14px;
+  }
+  .search-box button {
+    padding: 6px 12px;
+    background-color: #883A66;
+    color: #fff;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  .search-box button:hover {
+    background-color: #a4395a;
+  }
+
+  /* Flex layout */
+  div.container {
+    display: flex;
+  }
+
+  /* Menú lateral */
+  .menu {
+    width: 180px;
+    background-color: #d4b3be;
+    padding: 20px;
+    min-height: calc(100vh - 60px);
+    box-shadow: inset -1px 0 5px rgba(0,0,0,0.1);
+  }
+  .menu button {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 15px;
+    background-color: transparent;
+    border: 2px solid #883A66;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  .menu button:hover {
+    background-color: #883A66;
+    color: #fff;
+  }
+
+  /* Contenido principal */
+  .main-content {
+    flex: 1;
+    padding: 30px;
+    background-color: #fff;
+  }
+
+  /* Secciones */
+  .section {
+    display: none;
+  }
+  .section.active {
+    display: block;
+  }
+  .section-header {
+    font-size: 24px;
+    font-weight: 600;
+    color: #883A66;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #883A66;
+    padding-bottom: 8px;
+  }
+  /* Contenido de las secciones */
+  .section-body {
+    margin-top: 20px;
+    line-height: 1.6;
+  }
+  /* Botón ENTER */
+  .enter-btn {
+    padding: 12px 24px;
+    background-color: #f0cde2;
+    border: 3px solid #704239;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.2s, transform 0.2s;
+  }
+  .enter-btn:hover {
+    background-color: #e8b1c1;
+    transform: scale(1.05);
+  }
+  /* Sección ilustraciones y proyectos */
+  .images-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .card {
+    background: #fff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: calc(50% - 20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .card img {
+    max-width: 100%;
+    border-radius: 10px;
+    display: block;
+    margin-bottom: 12px;
+  }
+  /* Responsive */
+  @media(max-width: 768px){
+    .container {
+      flex-direction: column;
+    }
+    .menu {
+      width: 100%;
+      min-height: auto;
+    }
+    .card {
+      width: 100%;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Encabezado -->
+<header> 
+  <div class="logo">Studio RuviE</div> 
+  <div class="top-icons">
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" alt="Inicio" title="Inicio" />
+    <img src="https://img.icons8.com/ios-filled/50/ffffff/user-male-circle.png" alt="Perfil" title="Perfil" />
+  </div>
+  <div class="search-box">
+    <input type="text" placeholder="Search..." />
+    <button>&#128269;</button>
+  </div>
+</header>
+
+<!-- Contenedor -->
+<div class="container">
+  <!-- Menú -->
+  <div class="menu">
+    <button onclick="showSection('sobre')">SOBRE MI</button>
+    <button onclick="showSection('area')">ÁREA DE ESPECIALIZACIÓN</button>
+    <button onclick="showSection('contacto')">CONTACTOS</button>
+    <button onclick="showSection('servicios')">SERVICIOS</button>
+    <button onclick="showSection('proyectos')">MIS PROYECTOS</button>
+  </div>
+  <!-- Contenido -->
+  <div class="main-content" id="contenido">
+
+    <!-- ¿Quién soy? -->
+    <div class="section" id="sobre">
+      <h2 class="section-header">¿QUIÉN SOY?</h2>
+      <div class="section-body">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Sobre mí" style="width:100%; max-width:600px; border-radius:10px; margin-bottom:15px;" />
+        <p>¡Hola y bienvenidos! Soy Elizabeth, una apasionada diseñadora digital con experiencia en la creación de soluciones creativas y visuales que transforman ideas en realidades. Mi enfoque se centra en [tu área de especialización], donde combino estética y funcionalidad. A través de este portafolio, quiero mostrarte una selección de mis trabajos destacados. Estoy emocionada de compartir mi viaje creativo contigo y espero que encuentres inspiración en mis proyectos.</p>
+        <button class="enter-btn" onclick="alert('¡Bienvenido!')">ENTER</button>
+      </div>
+    </div>
+
+    <!-- Área de especialización -->
+    <div class="section" id="area">
+      <h2 class="section-header">ÁREA DE ESPECIALIZACIÓN</h2>
+      <div class="section-body">
+        <h3 style="margin-top:0;">ILUSTRACIÓN</h3>
+        <p>Mi pasión en la ilustración es comunicar ideas y emociones a través de imágenes vibrantes y conmovedoras. Uso técnicas variadas para transmitir historias visuales que conecten con el público.</p>
+        <!-- Imágenes ilustrativas -->
+        <div class="images-grid">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Ilustración 1" />
+            <button class="enter-btn" onclick="alert('Ver ilustración 1')">ENTER</button>
+          </div>
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1523413651479-597eb2da0ad6" alt="Ilustración 2" />
+            <button class="enter-btn" onclick="alert('Ver ilustración 2')">ENTER</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contactos -->
+    <div class="section" id="contacto">
+      <h2 class="section-header">CONTACTOS</h2>
+      <div class="section-body" style="text-align: center;">
+        <div class="social-icons">
+          <img src="https://img.icons8.com/ios-filled/50/0000ff/facebook-new.png" alt="Facebook" title="Facebook" />
+          <img src="https://img.icons8.com/ios-filled/50/000000/instagram-new.png" alt="Instagram" title="Instagram" />
+          <img src="https://img.icons8.com/ios-filled/50/0000ff/snapchat.png" alt="Snapchat" title="Snapchat" />
+          <img src="https://img.icons8.com/ios-filled/50/00aced/twitter.png" alt="Twitter" title="Twitter" />
+          <img src="https://img.icons8.com/ios-filled/50/25D366/whatsapp.png" alt="WhatsApp" title="WhatsApp" />
+          <img src="https://img.icons8.com/ios-filled/50/0000ff/linkedin.png" alt="LinkedIn" title="LinkedIn" />
+        </div>
+        <button class="enter-btn" onclick="alert('Contacto')">ENTER</button>
+      </div>
+    </div>
+
+    <!-- Servicios -->
+    <div class="section" id="servicios">
+      <h2 class="section-header">SERVICIOS</h2>
+      <div class="section-body">
+        <p>Diseñadora digital especializada en conectar marcas con su audiencia:</p>
+        <ul>
+          <li>Diseño Gráfico: logotipos, folletos, carteles, materiales promocionales.</li>
+          <li>Diseño de Interfaz (UI): interfaces atractivas y funcionales para apps y webs.</li>
+          <li>Diseño de UX: investigación y análisis para mejorar la experiencia del usuario.</li>
+          <li>Ilustración Digital: ilustraciones personalizadas que cuentan historias visuales.</li>
+          <li>Marketing Digital: gráficos y contenido para redes sociales, blogs, campañas.</li>
+        </ul>
+        <div class="images-grid" style="margin-top:15px;">
+          <div class="card" style="width:30%;">
+            <img src="https://images.unsplash.com/photo-1523413651479-597eb2da0ad6" alt="Servicio 1" />
+            <button class="enter-btn" onclick="alert('Ver servicio 1')">ENTER</button>
+          </div>
+          <div class="card" style="width:30%;">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Servicio 2" />
+            <button class="enter-btn" onclick="alert('Ver servicio 2')">ENTER</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mis Proyectos -->
+    <div class="section" id="proyectos">
+      <h2 class="section-header">MIS PROYECTOS</h2>
+      <div class="section-body">
+        <p>Proyectos destacados que reflejan mi creatividad y compromiso con la innovación.</p>
+        <div style="display:flex; flex-direction:column; gap:20px;">
+          <div class="card" style="max-width:600px;">
+            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Proyecto 1" />
+            <p>Proyecto 1: Branding para marca de moda</p>
+          </div>
+          <div class="card" style="max-width:600px;">
+            <img src="https://images.unsplash.com/photo-1523413651479-597eb2da0ad6" alt="Proyecto 2" />
+            <p>Proyecto 2: Diseño web para artista</p>
+          </div>
+        </div>
+        <button class="enter-btn" onclick="alert('Ver todos los proyectos')">VER TODOS</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function showSection(sectionId) {
+    const sections = ['sobre', 'area', 'contacto', 'servicios', 'proyectos'];
+    sections.forEach(id => {
+      document.getElementById(id).style.display = (id === sectionId) ? 'block' : 'none';
+    });
+  }
+  // Mostrar por defecto
+  showSection('sobre');
+</script>
+</body>
+</html>
